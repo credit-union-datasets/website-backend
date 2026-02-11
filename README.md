@@ -8,7 +8,7 @@ Backend database for the credit union high-yield savings website. A GitHub Actio
 
 | Table | Source | Description |
 |-------|--------|-------------|
-| `from_ncua` | credit-union-ncua | Charter number, credit union name, city, state |
+| `ncua_` | credit-union-ncua | Charter number, credit union name, city, state |
 | `website` | credit-union-websites | Credit union website URLs |
 | `membership` | credit-union-membership | Membership eligibility data |
 | `hysa` | credit-union-hysa | High-yield savings account rates |

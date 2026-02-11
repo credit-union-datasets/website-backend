@@ -25,7 +25,7 @@ HYSA_CSV = "credit-union-hysa/data/hysa.csv"
 
 def load_from_ncua(conn, csv_path):
     """
-    Load a curated subset of NCUA data into the from_ncua table.
+    Load a curated subset of NCUA data into the ncua_ table.
 
     Note: The full NCUA dataset contains 25+ columns of financial and
     administrative data per credit union. We intentionally load only the
@@ -35,7 +35,7 @@ def load_from_ncua(conn, csv_path):
     for any downstream analysis that requires the full data.
     """
     conn.execute("""
-        CREATE TABLE from_ncua (
+        CREATE TABLE ncua_ (
             charter_number INTEGER PRIMARY KEY,
             credit_union_name TEXT NOT NULL,
             city TEXT,
@@ -54,9 +54,9 @@ def load_from_ncua(conn, csv_path):
                 row["State (Mailing address)"],
             ))
     conn.executemany(
-        "INSERT INTO from_ncua VALUES (?, ?, ?, ?)", rows
+        "INSERT INTO ncua_ VALUES (?, ?, ?, ?)", rows
     )
-    print(f"  from_ncua: {len(rows)} rows loaded")
+    print(f"  ncua_: {len(rows)} rows loaded")
 
 
 def load_website(conn, csv_path):
